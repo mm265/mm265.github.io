@@ -44,22 +44,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       </details>
     </header>
 	
-	<button id="get-access">Get access to camera</button>
-	<video autoplay></video>
-	<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-	<script>
-	document.querySelector('button').addEventListener('click', async (e) => {
-	  try {
-		const stream = await navigator.mediaDevices.getUserMedia({
-		  video: true
-		})  
-		document.querySelector('video').srcObject = stream
-	  } catch(e) {
-		console.error(e)
-	  }
-	})
-	</script>
-
     <script type="module">
       import {WebXRButton} from '../js/util/webxr-button.js';
       import {Scene} from '../js/render/scenes/scene.js';
@@ -213,6 +197,18 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       function onXRFrame(t, frame) {
         let session = frame.session;
         let pose = frame.getViewerPose(xrRefSpace);
+
+		var width = 50
+		var height = 50
+		//Clear screen to red
+		gl.clearColor(1, 0, 0, 1)
+		gl.clear(gl.COLOR_BUFFER_BIT)
+
+		// get bitmap data 
+		var bitmapData = new Uint8Array(width * height * 4)
+		gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, bitmapData)
+
+
 
         // If requested, use the pose to cast a reticle into the scene using a
         // continuous hit test. For the moment we're just using the flower
