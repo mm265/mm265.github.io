@@ -43,6 +43,23 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         </p>
       </details>
     </header>
+	
+	<button id="get-access">Get access to camera</button>
+	<video autoplay></video>
+	<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+	<script>
+	document.querySelector('button').addEventListener('click', async (e) => {
+	  try {
+		const stream = await navigator.mediaDevices.getUserMedia({
+		  video: true
+		})  
+		document.querySelector('video').srcObject = stream
+	  } catch(e) {
+		console.error(e)
+	  }
+	})
+	</script>
+
     <script type="module">
       import {WebXRButton} from '../js/util/webxr-button.js';
       import {Scene} from '../js/render/scenes/scene.js';
