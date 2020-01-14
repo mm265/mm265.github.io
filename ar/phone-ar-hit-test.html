@@ -43,7 +43,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         </p>
       </details>
     </header>
-	
+    <script src='js/webxr-polyfill.js'></script>
+    <script>
+        window.polyfill = new WebXRPolyfill();
+    </script>
     <script type="module">
       import {WebXRButton} from '../js/util/webxr-button.js';
       import {Scene} from '../js/render/scenes/scene.js';
@@ -53,8 +56,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {DropShadowNode} from '../js/render/nodes/drop-shadow.js';
       import {vec3} from '../js/render/math/gl-matrix.js';
       import {Ray} from '../js/render/math/ray.js';
-      import WebXRPolyfill from '../webxr-polyfill-master/examples/js/webxr-polyfill.js';
-      window.polyfill = new WebXRPolyfill();
 
       let useReticle = document.getElementById('useReticle');
 
