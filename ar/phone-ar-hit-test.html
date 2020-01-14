@@ -53,8 +53,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {DropShadowNode} from '../js/render/nodes/drop-shadow.js';
       import {vec3} from '../js/render/math/gl-matrix.js';
       import {Ray} from '../js/render/math/ray.js';
-      // import WebXRPolyfill from '../webxr-polyfill-master/src/WebXRPolyfill.js';
-      // window.polyfill = new WebXRPolyfill();
+      import WebXRPolyfill from '../webxr-polyfill-master/examples/js/webxr-polyfill.js';
+      window.polyfill = new WebXRPolyfill();
 
       let useReticle = document.getElementById('useReticle');
 
