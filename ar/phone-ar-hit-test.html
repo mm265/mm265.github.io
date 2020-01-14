@@ -82,7 +82,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let flowers = [];
 
       //VideoCapture
-      navigator.getDisplayMedia({
+      navigator.mediaDevices.getDisplayMedia({
           video: true
       }).then(
           stream => {
