@@ -87,8 +87,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let flowers = [];
 
       //VideoCapture
-      const video = document.querySelector('video').style.visibility = 'hidden';
-      const canvas = window.canvas = document.querySelector('canvas').style.visibility = 'hidden';
+      const video = document.querySelector('video');
+      document.querySelector('video').style.visibility = 'hidden';
+      const canvas = window.canvas = document.querySelector('canvas');
+      document.querySelector('canvas').style.visibility = 'hidden';
       canvas.width = 480;
       canvas.height = 360;
       
