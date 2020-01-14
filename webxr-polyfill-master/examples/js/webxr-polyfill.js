@@ -6052,7 +6052,8 @@ class WebXRPolyfill {
       this._injectPolyfill(this.global);
     } else {
       console.log('blab');      
-      this._injectCompatibilityShims(this.global);
+      // this._injectCompatibilityShims(this.global);
+      this._injectPolyfill(this.global);
     }
   }
   _injectPolyfill(global) {
