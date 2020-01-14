@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import GLOBAL from './src/lib/global';
-import API from './src/api/index';
+import GLOBAL from '../src/lib/global';
+import API from '../src/api/index';
 import {
   polyfillMakeXRCompatible,
   polyfillGetContext
-} from './src/polyfill-globals';
-import { isImageBitmapSupported, isMobile } from './src/utils';
-import { requestXRDevice } from './src/devices';
+} from '../src/polyfill-globals';
+import { isImageBitmapSupported, isMobile } from '../src/utils';
+import { requestXRDevice } from '../src/devices';
 
 const CONFIG_DEFAULTS = {
   // The default global to use for needed APIs.
