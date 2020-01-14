@@ -41,6 +41,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           <input id="useReticle" type="checkbox" checked>
           <label for="useReticle">Use reticle for placement</label>
         </p>
+        <div id="container">
+          <video></video>
+          <button>Take snapshot</button>
+          <canvas></canvas>
+        </div>
       </details>
     </header>
     <script type="module">
@@ -80,10 +85,37 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       const MAX_FLOWERS = 30;
       let flowers = [];
+
+      //VideoCapture
+      const video = document.querySelector('video').style.visibility = 'hidden';
+      const canvas = window.canvas = document.querySelector('canvas').style.visibility = 'hidden';
+      canvas.width = 480;
+      canvas.height = 360;
       
-      navigator.mediaDevices.getUserMedia({
-        video: true
-      }) 
+      const button = document.querySelector('button');
+      button.onclick = function() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+      };
+
+      const constraints = {
+      audio: false,
+      video: true
+      };
+
+      function handleSuccess(stream) {
+      window.stream = stream; // make stream available to browser console
+      video.srcObject = stream;
+      }
+
+      function handleError(error) {
+      console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
+      }
+
+      navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+
+      
       // Ensure the background is transparent for AR.
       scene.clear = false;
 
