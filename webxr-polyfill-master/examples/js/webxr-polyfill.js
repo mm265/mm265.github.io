@@ -6063,6 +6063,7 @@ class WebXRPolyfill {
     for (const className of Object.keys(API)) {
       if (global[className] !== undefined) {
         console.warn(`${className} already defined on global.`);
+        global[className] = API[className];
       } else {
         global[className] = API[className];
       }
