@@ -82,12 +82,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let flowers = [];
 
       //VideoCapture
-      try {
-        let mediaStream = await navigator.mediaDevices.getDisplayMedia({video:true});
-          videoElement.srcObject = mediaStream;
-      } catch (e) {
-        console.log('Unable to acquire screen capture: ' + e);
-      }
+      navigator.getDisplayMedia({
+          video: true
+      }).then(
+          stream => {
+            console.log("Awesome");
+      },
+          error => {
+            console.log("Unable to acquire screen capture", error);
+      });
       
       // Ensure the background is transparent for AR.
       scene.clear = false;
