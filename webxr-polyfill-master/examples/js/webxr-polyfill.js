@@ -6048,8 +6048,10 @@ class WebXRPolyfill {
     this.nativeWebXR = 'xr' in this.global.navigator;
     this.injected = false;
     if (!this.nativeWebXR) {
+      console.log('blub');
       this._injectPolyfill(this.global);
     } else {
+      console.log('blab');      
       this._injectCompatibilityShims(this.global);
     }
   }
