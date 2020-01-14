@@ -28,6 +28,23 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <link rel='stylesheet' href='../css/common.css'>
 
     <title>AR Hit Test</title>
+    
+    <script src='../build/webxr-polyfill.js'></script>
+    <script src='js/gl-matrix-min.js'></script>
+    <script src='js/cottontail.js'></script>
+    <script>
+        window.polyfill = new WebXRPolyfill();
+    </script>
+
+    <script src='../js/util/webxr-button.js'></script> 
+    <script src='../js/render/scenes/scene.js'></script>
+    <script src='../js/render/core/renderer.js'></script>
+    <script src='../js/render/core/node.js'></script>
+    <script src='../js/render/nodes/gltf2.js'></script>
+    <script src='../js/render/nodes/drop-shadow.js'></script>
+    <script src='../js/render/math/gl-matrix.js'></script>
+    <script src='../js/render/math/ray.js'></script>
+
   </head>
   <body>
     <header>
@@ -45,14 +62,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </header>
 	
     <script type="module">
-      import {WebXRButton} from '../js/util/webxr-button.js';
-      import {Scene} from '../js/render/scenes/scene.js';
-      import {Renderer, createWebGLContext} from '../js/render/core/renderer.js';
-      import {Node} from '../js/render/core/node.js';
-      import {Gltf2Node} from '../js/render/nodes/gltf2.js';
-      import {DropShadowNode} from '../js/render/nodes/drop-shadow.js';
-      import {vec3} from '../js/render/math/gl-matrix.js';
-      import {Ray} from '../js/render/math/ray.js';
+      // import {WebXRButton} from '../js/util/webxr-button.js';
+      // import {Scene} from '../js/render/scenes/scene.js';
+      // import {Renderer, createWebGLContext} from '../js/render/core/renderer.js';
+      // import {Node} from '../js/render/core/node.js';
+      // import {Gltf2Node} from '../js/render/nodes/gltf2.js';
+      // import {DropShadowNode} from '../js/render/nodes/drop-shadow.js';
+      // import {vec3} from '../js/render/math/gl-matrix.js';
+      // import {Ray} from '../js/render/math/ray.js';
 
 
       let useReticle = document.getElementById('useReticle');
