@@ -80,14 +80,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       const MAX_FLOWERS = 30;
       let flowers = [];
-
-      let displayMediaOptions = {video:{}, audio: false};
-
-      async function startCapture(displayMediaOptions) {
-        captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-        return captureStream;
-      }
-
+      
+      navigator.mediaDevices.getUserMedia({
+        video: true
+      }) 
       // Ensure the background is transparent for AR.
       scene.clear = false;
 
