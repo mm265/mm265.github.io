@@ -28,13 +28,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <link rel='stylesheet' href='../css/common.css'>
 
     <title>AR Hit Test</title>
-    
-    <script src='../build/webxr-polyfill.js'></script>
-    <script src='js/gl-matrix-min.js'></script>
-    <script src='js/cottontail.js'></script>
-    <script>
-        window.polyfill = new WebXRPolyfill();
-    </script>
 
     <script src='../js/util/webxr-button.js'></script> 
     <script src='../js/render/scenes/scene.js'></script>
@@ -70,9 +63,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {DropShadowNode} from '../js/render/nodes/drop-shadow.js';
       import {vec3} from '../js/render/math/gl-matrix.js';
       import {Ray} from '../js/render/math/ray.js';
-      // import WebXRPolyfill from '../js/WebXRPolyfill';
-
-
+      import WebXRPolyfill from '../js/WebXRPolyfill';
+      window.polyfill = new WebXRPolyfill();
 
       let useReticle = document.getElementById('useReticle');
 
