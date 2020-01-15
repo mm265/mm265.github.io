@@ -6,7 +6,8 @@
     <script src="https://rawgit.com/chenzlabs/three.ar.js/0f645a5/dist/three.ar.min.js"></script>
     <script src="https://rawgit.com/chenzlabs/aframe-ar/0cf8d5a/dist/aframe-ar.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
+        AFRAME.w
       AFRAME.registerComponent('shadow-material', {
         init() {
             this.material = new THREE.ShadowMaterial();
@@ -15,9 +16,9 @@
         }
       });
     </script>
-    <!-- Prevent touch causing flicker on iOS. -->
+     Prevent touch causing flicker on iOS. 
     <style> * { -webkit-tap-highlight-color: rgba(0,0,0,0); } </style>        
-  </head>
+  </head> -->
 
   <body>
     <a-scene ar>
@@ -35,7 +36,7 @@
       <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
     </a-scene>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       function onSceneLoaded() {
         const raycaster = document.querySelector('[ar-raycaster]');
         const cursor = document.querySelector('#cursor');
@@ -71,6 +72,6 @@
 
       const scene = document.querySelector('a-scene');
       scene.addEventListener('loaded', onSceneLoaded);
-    </script>
+    </script> -->
   </body>
 </html>
