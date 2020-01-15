@@ -9,7 +9,8 @@
         <!-- <script src="../AR.js-master/three.js/build/ar.js"></script>         -->
     </head>
   <body>
-    <a-scene ar>
+    <a-scene ar embedded>
+        <a-scene style="display: block; width: 50%;">
       <a-camera ar-raycaster raycaster cursor="fuse:false"></a-camera>
       <a-assets>
         <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
@@ -19,37 +20,47 @@
     </a-scene>
 
     <script type="text/javascript">
+
+    AFRAME.scene.components.screenshot.capture();
     
-    document.querySelector('a-scene').components.screenshot.capture('perspective')
+    // document.querySelector('a-scene').components.screenshot.capture('perspective')
 
-      function onSceneLoaded() {
-        raycaster="objects: [data-raycastable]";
-        const raycaster = document.querySelector('[ar-raycaster]');
-        const cursor = document.querySelector('#cursor');
-        raycaster.addEventListener('raycaster-intersection', (event) => {
-          cursor.setAttribute('position', event.detail.intersections[0].point);
-        });
+    //   function onSceneLoaded() {
+    //     raycaster="objects: [data-raycastable]";
+    //     const raycaster = document.querySelector('[ar-raycaster]');
+    //     const cursor = document.querySelector('#cursor');
+    //     raycaster.addEventListener('raycaster-intersection', (event) => {
+    //       cursor.setAttribute('position', event.detail.intersections[0].point);
+    //     });
 
-        const flower = document.querySelector('#flower');
-        const { stringify } = AFRAME.utils.coordinates;
+    //     const flower = document.querySelector('#flower');
+    //     const { stringify } = AFRAME.utils.coordinates;
 
-        let firstTime = true;
-        raycaster.addEventListener('click', () => {
-          const target = raycaster.components.cursor.intersection.point;
+    //     let firstTime = true;
+    //     raycaster.addEventListener('click', () => {
+    //       const target = raycaster.components.cursor.intersection.point;
 
-          if (firstTime) {
-            flower.setAttribute('position', target);
-            firstTime = false;
-          } else {
-            const currentPosition = flower.object3D.position;
-            const distance = currentPosition.distanceTo(target);
+    //       if (firstTime) {
+    //         flower.setAttribute('position', target);
+    //         firstTime = false;
+    //       } else {
+    //         const currentPosition = flower.object3D.position;
+    //         const distance = currentPosition.distanceTo(target);
 
-            flower.object3D.lookAt(target);
-          }
-        });
-      }
-      const scene = document.querySelector('a-scene');
-      scene.addEventListener('loaded', onSceneLoaded);
+    //         flower.object3D.lookAt(target);
+    //       }
+    //     });
+    //   }
+    //   const scene = document.querySelector('a-scene');
+    //   scene.addEventListener('loaded', onSceneLoaded);
     </script>
   </body>
 </html>
+
+
+<a-scene embedded> 
+    <!-- scene stuff -->
+  </a-scene>
+  Then you are free the style <a-scene> how you wish
+  
+  a-scene { display: block; width: 50%; }
