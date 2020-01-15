@@ -79,7 +79,18 @@
             init: function() {
                 console.log('blub');
 
-                var image = document.querySelector("a-scene").components.screenshot.capture('perspective');
+                let video = document.querySelector('a-scene').canvas.captureStream(25);
+                // let image = document.querySelector("a-scene").components.screenshot.capture('perspective');
+
+                let image = video.getVideoTracks()[0];
+                imageCapture = new ImageCapture(tt);
+                imageCapture.grabFrame()
+                    .then(imageBitmap => {
+                    const canvas = document.querySelector('#grabFrameCanvas');
+                    drawCanvas(canvas, imageBitmap);
+                    })
+                    .catch(error => console.log(error));
+
 
                 image.addEventListener("load", function () {
                     var imgCanvas = document.createElement("canvas"),
