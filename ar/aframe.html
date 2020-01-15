@@ -19,6 +19,9 @@
     </a-scene>
 
     <script type="text/javascript">
+    
+    document.querySelector('a-scene').components.screenshot.capture('perspective')
+
       function onSceneLoaded() {
         raycaster="objects: [data-raycastable]";
         const raycaster = document.querySelector('[ar-raycaster]');
