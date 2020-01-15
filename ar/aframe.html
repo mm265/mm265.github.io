@@ -32,15 +32,16 @@
     </script> -->
 
 
-
-    <a-scene embedded ar renderer="maxCanvasWidth: 20; maxCanvasHeight: 20;">
-      <a-camera></a-camera>
-      <a-assets>
-        <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
-      </a-assets>
-      <a-entity id="flower" gltf-model="#sunflower" position="0 0 -5" scale="2 2 2">
-      <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
-    </a-scene>
+    <div>
+        <a-scene embedded ar renderer="maxCanvasWidth: 20; maxCanvasHeight: 20;">
+        <a-camera></a-camera>
+        <a-assets>
+            <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
+        </a-assets>
+        <a-entity id="flower" gltf-model="#sunflower" position="0 0 -5" scale="2 2 2">
+        <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
+        </a-scene>
+    </div>
 
 
   </body>
