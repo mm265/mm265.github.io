@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Hello, World! • A-Frame</title>
         <meta name="description" content="Hello, World! • A-Frame">
-        <script src="../aframe-master/dist/aframe-master.js"></script>
+        <script src="../aframe-master/dist/aframe-v1.0.3.js"></script>
         <script src="../AR.js-master/aframe/build/aframe-ar.js"></script>
         <!-- <script src="../AR.js-master/three.js/build/ar.js"></script>         -->
     </head>
@@ -14,12 +14,13 @@
       <a-assets>
         <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
       </a-assets>
-      <a-entity id="flower" gltf-model="#sunflower" position="0 0 -5" scale="1 1 1">
+      <a-entity id="flower" gltf-model="#sunflower" position="0 0 -5" scale="2 2 2">
       <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
     </a-scene>
 
     <script type="text/javascript">
       function onSceneLoaded() {
+        raycaster="objects: [data-raycastable]";
         const raycaster = document.querySelector('[ar-raycaster]');
         const cursor = document.querySelector('#cursor');
         raycaster.addEventListener('raycaster-intersection', (event) => {
