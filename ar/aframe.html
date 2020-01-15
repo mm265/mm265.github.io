@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello, World! • A-Frame</title>
-    <meta name="description" content="Hello, World! • A-Frame">
-    <script src="../aframe-master/dist/aframe-master.js"></script>
-  </head>
-  <body>
-    <a-scene ar>
-    <!-- <a-scene background="color: #ECECEC"> -->
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-    </a-scene>
-    </html>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello, World! • A-Frame</title>
+        <meta name="description" content="Hello, World! • A-Frame">
+        <script src="../aframe-master/dist/aframe-master.js"></script>
+        <script src="../AR.js-master/aframe/build/aframe-ar.js"></script>    
+    </head>
+    <body>
+        <a-scene embedded arjs='trackingMethod: best'>
+        <!-- <a-scene background="color: #ECECEC"> -->
+            <a-anchor hit-testing-enabled= 'true'>
+                <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+            </a-anchor> 
+            <a-camera-static/> 
+        </a-scene>
+    </body>
+</html>
