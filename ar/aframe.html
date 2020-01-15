@@ -21,13 +21,19 @@
             });
             }
         });
-    </script>  
-
+    </script> 
+    
     <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
-    <video id="myVideo" width="240" height="297"></video>
+    <img id="myImg" width="200" height="200" src=""></img>
 
-    <a-scene ar embedded>
-        <a-scene style="display: block; width: 50%;">
+    <!-- <script>
+         var image = new Image(200, 200);  
+        image.src.document.querySelector('a-scene').components.screenshot.capture("perspective");  
+    </script> -->
+
+
+
+    <a-scene embedded ar renderer="maxCanvasWidth: 20; maxCanvasHeight: 20;">
       <a-camera></a-camera>
       <a-assets>
         <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
@@ -36,6 +42,6 @@
       <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
     </a-scene>
 
-    <script>document.querySelector('a-scene').components.screenshot.capture('perspective');</script>
+
   </body>
 </html>
