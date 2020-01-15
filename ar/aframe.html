@@ -47,15 +47,16 @@
                             // image.name = "image.png";
                             // image.src = document.querySelector("a-scene").components.screenshot.capture('perspective');
                             // document.appendChild
-                }
-                }
+                });
+            }
+            
             });
     </script>
 
 
     <div>
-        <a-scene embedded ar renderer="maxCanvasWidth: 20; maxCanvasHeight: 20;">
-        <a-camera></a-camera>
+        <a-scene class="aframebox" embedded>
+
         <a-assets>
             <a-asset id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset>
             <figure>
