@@ -74,47 +74,77 @@
           });
         }
       });    
-  </script>
+      
+      AFRAME.registerComponent('screenshot', {
+            init: function() {
+                console.log('blub');
+
+                var image = document.querySelector("a-scene").components.screenshot.capture('perspective');
+
+                image.addEventListener("load", function () {
+                    var imgCanvas = document.createElement("canvas"),
+                    imgContext = imgCanvas.getContext("2d");
+
+                    // Make sure canvas is as big as the picture
+                    imgCanvas.width = image.width;
+                    imgCanvas.height = image.height;
+
+                    // Draw image into canvas element
+                    imgContext.drawImage(image, 0, 0, image.width, image.height);
+
+                    // Get canvas contents as a data URL
+                    var imgAsDataURL = imgCanvas.toDataURL("image/png");
+
+                    localStorage.setItem("image", imgAsDataURL);
+                });
+            }
+            });
+
+
+
+</script>
   </head>  
   <body>
 
-    <a-scene>
-      <a-assets timeout="30000">
-        <a-asset-item id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset-item>             
-      </a-assets>
-      
-      <a-camera position="0 1.2 0"></a-camera>
-      
-      <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->
-      <a-entity environment="preset: forest; lighting: none; shadow: none; lightPosition: 0 2.15 0"
-                hide-in-ar-mode></a-entity>
-      
-      <a-entity id="flower" position="-1 0 0" scale="0.5 0.5 0.5">
-        <a-entity position="0 2.15 0" rotation="0 55 0"
-                  gltf-model="#sunflower"
-                  animation-mixer
-                  shadow="cast: true; receive: false"></a-entity>
-      </a-entity>  
-      
-      <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
-      <a-light type="directional"
-               light="castShadow: true;
-                      shadowMapHeight: 1024;
-                      shadowMapWidth: 1024;
-                      shadowCameraLeft: -7;
-                      shadowCameraRight: 5;
-                      shadowCameraBottom: -5;
-                      shadowCameraTop: 5;"
-               id="light"
-               target="flower"
-               position="-5 3 1.5"></a-light>
+    <div id="ar">
+        <a-scene embedded>
+        <a-assets timeout="30000">
+            <a-asset-item id="sunflower" src="../media/gltf/sunflower/sunflower.gltf"></a-asset-item>             
+        </a-assets>
+        
+        <a-camera position="0 1.2 0"></a-camera>
+        
+        <!-- Environment for 2D and VR viewing. It's auto-hidden in AR mode. -->
+        <a-entity environment="preset: forest; lighting: none; shadow: none; lightPosition: 0 2.15 0"
+                    hide-in-ar-mode></a-entity>
+        
+        <a-entity id="flower" position="-1 0 -5" scale="0.5 0.5 0.5">
+            <a-entity position="0 2.15 0" rotation="0 55 0"
+                    gltf-model="#sunflower"
+                    animation-mixer
+                    shadow="cast: true; receive: false"></a-entity>
+        </a-entity>  
+        
+        <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
+        <a-light type="directional"
+                light="castShadow: true;
+                        shadowMapHeight: 1024;
+                        shadowMapWidth: 1024;
+                        shadowCameraLeft: -7;
+                        shadowCameraRight: 5;
+                        shadowCameraBottom: -5;
+                        shadowCameraTop: 5;"
+                id="light"
+                target="flower"
+                position="-5 3 1.5"></a-light>
 
-      <!-- This shadow-receiving plane is only visible in AR mode. -->
-      <a-plane height="15" width="15" position="0 0 -3" rotation="-90 0 0"
-               shadow="receive: true"
-               ar-shadows="opacity: 0.3"
-               visible="false"></a-plane>
-    </a-scene>
+        <!-- This shadow-receiving plane is only visible in AR mode. -->
+        <a-plane height="15" width="15" position="0 0 -3" rotation="-90 0 0"
+                shadow="receive: true"
+                ar-shadows="opacity: 0.3"
+                visible="false"></a-plane>
+        </a-scene embedded>
+    </div>
 
     <div id="text">
       <h1>A-Frame Flower for VR/AR</h1>
@@ -134,6 +164,7 @@
         Powered by <a href="https://aframe.io/blog/aframe-v1.0.0/">A-Frame v1.0.0</a>.
       </p>
     </div>
+
     <script>
       function setSize(scale) {
         document.getElementById('flower').setAttribute('scale', {x: scale, y: scale, z: scale});
