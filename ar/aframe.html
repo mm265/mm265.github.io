@@ -21,8 +21,6 @@
             });
             }
         });
-    
-        document.querySelector('a-scene').components.screenshot.capture('perspective');
     </script>  
 
     <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
@@ -37,5 +35,7 @@
       <a-entity id="flower" gltf-model="#sunflower" position="0 0 -5" scale="2 2 2">
       <a-ring id="cursor" color="teal" radius-inner="0.02" radius-outer="0.03" position="0 -3 -3" rotation="-90 0 0"></a-ring>
     </a-scene>
+
+    <script>document.querySelector('a-scene').components.screenshot.capture('perspective');</script>
   </body>
 </html>
