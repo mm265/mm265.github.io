@@ -5,23 +5,13 @@
   <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;" antialias="true">
       <canvas></canvas>
       <a-assets>
-        <a-asset-item id="gltf1" src="model_captain/scene.gltf"></a-asset-item>
-        <a-asset-item id="gltf2" src="model_stormtrooper/scene.gltf"></a-asset-item>
+        <a-asset-item id="gltf1" src="../media/gltf/sunflower/sunflower.gltf"></a-asset-item>
       </a-assets>
-      <a-marker type="pattern" url="https://raw.githubusercontent.com/Esmolan/Esmolan.github.io/master/juguetron-marker.patt" size="1">
-			<a-gltf-model src="#gltf1" 
-				position="0 2.5 -1"
-				rotation="0 0 0"
-				scale="0.05 0.05 0.05"
-				animation-mixer="loop:repeat">
-			</a-gltf-model>	
-      </a-marker>
       <a-marker preset="hiro">
- 			<a-gltf-model src="#gltf2" 
+ 			<a-gltf-model src="#gltf1" 
 				position="0 0 0"
 				rotation="0 0 0"
-				scale="1 1 1"
-				animation-mixer="loop:repeat">
+				scale="1 1 1">
 			</a-gltf-model>	
 	  </a-marker>
       <a-entity camera></a-entity>
