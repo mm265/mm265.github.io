@@ -9,6 +9,6 @@ function setup() {
 }
 
 function draw() {
-background(255);
+background(50);
 // image(capture, 0, 0, 640, 480);
 }
